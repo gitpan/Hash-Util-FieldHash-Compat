@@ -1,0 +1,12 @@
+0.04
+        - RT#83667: localize $SIG{__DIE__} before an eval
+
+0.03
+	- Work around the strangeness of if.pm trying to use ":all.pm". WTF?
+
+0.02
+	- Tie::RefHash related dependencies changed
+	- ::Compat imports all of Hash::Util::FielDhash on 5.10 so that fully qualified calls work
+
+0.01
+	- Initial release

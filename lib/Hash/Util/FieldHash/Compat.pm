@@ -5,7 +5,7 @@ package Hash::Util::FieldHash::Compat;
 use strict;
 use warnings;
 
-use constant REAL_FIELDHASH => do { local $@; eval { require Hash::Util::FieldHash } };
+use constant REAL_FIELDHASH => do { local $@; local $SIG{__DIE__}; eval { require Hash::Util::FieldHash } };
 
 BEGIN {
 	if ( REAL_FIELDHASH ) {
@@ -16,7 +16,7 @@ BEGIN {
 	}
 }
 
-our $VERSION = "0.03";
+our $VERSION = "0.04";
 
 sub import {
 	if ( REAL_FIELDHASH ) {
