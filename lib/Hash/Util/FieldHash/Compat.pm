@@ -1,6 +1,9 @@
-#!/usr/bin/perl
-
 package Hash::Util::FieldHash::Compat;
+BEGIN {
+  $Hash::Util::FieldHash::Compat::AUTHORITY = 'cpan:NUFFIN';
+}
+# git description: v0.04-7-g86e0ddf
+$Hash::Util::FieldHash::Compat::VERSION = '0.05';
 
 use strict;
 use warnings;
@@ -8,28 +11,26 @@ use warnings;
 use constant REAL_FIELDHASH => do { local $@; local $SIG{__DIE__}; eval { require Hash::Util::FieldHash } };
 
 BEGIN {
-	if ( REAL_FIELDHASH ) {
-		require Hash::Util::FieldHash;
-		Hash::Util::FieldHash->import(":all");
-	} else {
-		require Hash::Util::FieldHash::Compat::Heavy;
-	}
+    if ( REAL_FIELDHASH ) {
+        require Hash::Util::FieldHash;
+        Hash::Util::FieldHash->import(":all");
+    } else {
+        require Hash::Util::FieldHash::Compat::Heavy;
+    }
 }
 
-our $VERSION = "0.04";
-
 sub import {
-	if ( REAL_FIELDHASH ) {
-		my $class = "Hash::Util::FieldHash";
+    if ( REAL_FIELDHASH ) {
+        my $class = "Hash::Util::FieldHash";
 
-		shift @_;
-		unshift @_, $class;
+        shift @_;
+        unshift @_, $class;
 
-		goto $class->can("import");
-	} else {
-		my $class = shift;
-		$class->export_to_level(1, $class, @_);
-	}
+        goto $class->can("import");
+    } else {
+        my $class = shift;
+        $class->export_to_level(1, $class, @_);
+    }
 }
 
 __PACKAGE__
@@ -45,14 +46,14 @@ on availability.
 
 =head1 SYNOPSIS
 
-	use Hash::Util::FieldHash::Compat;
+    use Hash::Util::FieldHash::Compat;
 
-	# pretend you are using L<Hash::Util::FieldHash>
-	# under older perls it'll be Tie::RefHash::Weak instead (slower, but same behavior)
+    # pretend you are using L<Hash::Util::FieldHash>
+    # under older perls it'll be Tie::RefHash::Weak instead (slower, but same behavior)
 
 =head1 DESCRIPTION
 
-Under older perls this module provides a drop in compatible api to
+Under older perls this module provides a drop-in compatible API to
 L<Hash::Util::FieldHash> using L<perltie>. When L<Hash::Util::FieldHash> is
 available it will use that instead.
 
@@ -68,6 +69,8 @@ L<Hash::Util::FieldHash>, L<Tie::RefHash>, L<Tie::RefHash::Weak>.
 
 =head1 VERSION CONTROL
 
+=for stopwords Darcs
+
 This module is maintained using Darcs. You can get the latest version from
 L<http://nothingmuch.woobling.org/code>, and use C<darcs send> to commit
 changes.
@@ -78,8 +81,8 @@ Yuval Kogman E<lt>nothingmuch@woobling.orgE<gt>
 
 =head1 COPYRIGHT
 
-	Copyright (c) 2008 Yuval Kogman. All rights reserved
-	This program is free software; you can redistribute
-	it and/or modify it under the same terms as Perl itself.
+    Copyright (c) 2008 Yuval Kogman. All rights reserved
+    This program is free software; you can redistribute
+    it and/or modify it under the same terms as Perl itself.
 
 =cut
