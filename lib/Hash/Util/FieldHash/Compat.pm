@@ -2,8 +2,8 @@ package Hash::Util::FieldHash::Compat;
 BEGIN {
   $Hash::Util::FieldHash::Compat::AUTHORITY = 'cpan:NUFFIN';
 }
-# git description: v0.05-6-g89d4ffe
-$Hash::Util::FieldHash::Compat::VERSION = '0.06';
+# git description: v0.06-2-g17d9df6
+$Hash::Util::FieldHash::Compat::VERSION = '0.07';
 # ABSTRACT: Use Hash::Util::FieldHash or ties, depending on availability
 
 use strict;
@@ -48,7 +48,7 @@ Hash::Util::FieldHash::Compat - Use Hash::Util::FieldHash or ties, depending on 
 
 =head1 VERSION
 
-version 0.06
+version 0.07
 
 =head1 SYNOPSIS
 

@@ -53,6 +53,7 @@ my $static_prereqs = do { my $x = {
                                         'Dist::Zilla::PluginBundle::Author::ETHER' => '0.053'
                                       },
                       'requires' => {
+                                      'Devel::Hide' => '0',
                                       'Dist::Zilla' => '5.014',
                                       'Dist::Zilla::Plugin::ContributorsFromGit' => '0',
                                       'Dist::Zilla::Plugin::GitHub::Update' => '0',

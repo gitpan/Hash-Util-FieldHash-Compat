@@ -5,12 +5,10 @@ BEGIN {
   $Hash::Util::FieldHash::Compat::Heavy::AUTHORITY = 'cpan:NUFFIN';
 }
 # ABSTRACT: Emulate Hash::Util::FieldHash using Tie::RefHash etc
-$Hash::Util::FieldHash::Compat::Heavy::VERSION = '0.06';
-package Hash::Util::FieldHash::Compat;
-BEGIN {
-  $Hash::Util::FieldHash::Compat::AUTHORITY = 'cpan:NUFFIN';
-}
-$Hash::Util::FieldHash::Compat::VERSION = '0.06';
+$Hash::Util::FieldHash::Compat::Heavy::VERSION = '0.07';
+package # hide from 'provides' scanner
+    Hash::Util::FieldHash::Compat;
+
 use Tie::RefHash::Weak;
 
 use vars qw(@ISA %EXPORT_TAGS @EXPORT_OK);
@@ -213,7 +211,7 @@ Hash::Util::FieldHash::Compat::Heavy - Emulate Hash::Util::FieldHash using Tie::
 
 =head1 VERSION
 
-version 0.06
+version 0.07
 
 =head1 SYNOPSIS
 

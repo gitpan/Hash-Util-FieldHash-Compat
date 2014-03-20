@@ -22,18 +22,18 @@ no_index:
     - share
 provides:
   Hash::Util::FieldHash::Compat:
-    file: lib/Hash/Util/FieldHash/Compat/Heavy.pm
-    version: '0.06'
+    file: lib/Hash/Util/FieldHash/Compat.pm
+    version: '0.07'
   Hash::Util::FieldHash::Compat::Heavy:
     file: lib/Hash/Util/FieldHash/Compat/Heavy.pm
-    version: '0.06'
+    version: '0.07'
 requires:
   perl: '5.006'
 resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=Hash-Util-FieldHash-Compat
   homepage: https://github.com/karenetheridge/Hash-Util-FieldHash-Compat
   repository: https://github.com/karenetheridge/Hash-Util-FieldHash-Compat.git
-version: '0.06'
+version: '0.07'
 x_Dist_Zilla:
   perl:
     version: '5.019009'
