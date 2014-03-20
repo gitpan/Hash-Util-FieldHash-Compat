@@ -1,11 +1,16 @@
+use strict;
+use warnings;
+package Hash::Util::FieldHash::Compat::Heavy;
+BEGIN {
+  $Hash::Util::FieldHash::Compat::Heavy::AUTHORITY = 'cpan:NUFFIN';
+}
+# ABSTRACT: Emulate Hash::Util::FieldHash using Tie::RefHash etc
+$Hash::Util::FieldHash::Compat::Heavy::VERSION = '0.06';
 package Hash::Util::FieldHash::Compat;
 BEGIN {
   $Hash::Util::FieldHash::Compat::AUTHORITY = 'cpan:NUFFIN';
 }
-$Hash::Util::FieldHash::Compat::VERSION = '0.05';
-use strict;
-use warnings;
-
+$Hash::Util::FieldHash::Compat::VERSION = '0.06';
 use Tie::RefHash::Weak;
 
 use vars qw(@ISA %EXPORT_TAGS @EXPORT_OK);
@@ -73,12 +78,10 @@ sub register {
 }
 
 {
-    package Hash::Util::FieldHash::Compat::Tie::IdHash;
-BEGIN {
-  $Hash::Util::FieldHash::Compat::Tie::IdHash::AUTHORITY = 'cpan:NUFFIN';
-}
-$Hash::Util::FieldHash::Compat::Tie::IdHash::VERSION = '0.05';
-use Tie::Hash ();
+    package # hide from PAUSE
+        Hash::Util::FieldHash::Compat::Tie::IdHash;
+
+    use Tie::Hash ();
     use vars qw(@ISA);
     @ISA = qw(Tie::StdHash);
 
@@ -105,12 +108,10 @@ use Tie::Hash ();
         }
     }
 
-    package Hash::Util::FieldHash::Compat::Tie::FieldHash;
-BEGIN {
-  $Hash::Util::FieldHash::Compat::Tie::FieldHash::AUTHORITY = 'cpan:NUFFIN';
-}
-$Hash::Util::FieldHash::Compat::Tie::FieldHash::VERSION = '0.05';
-use vars qw(@ISA);
+    package # hide from PAUSE
+        Hash::Util::FieldHash::Compat::Tie::FieldHash;
+
+    use vars qw(@ISA);
     @ISA = qw(Tie::RefHash::Weak);
 
     # this subclass retains weakrefs to the objects in the keys, but pretends
@@ -166,12 +167,10 @@ use vars qw(@ISA);
         }
     }
 
-    package Hash::Util::FieldHash::Compat::Destroyer;
-BEGIN {
-  $Hash::Util::FieldHash::Compat::Destroyer::AUTHORITY = 'cpan:NUFFIN';
-}
-$Hash::Util::FieldHash::Compat::Destroyer::VERSION = '0.05';
-use Scalar::Util qw(weaken);
+    package # hide from PAUSE
+        Hash::Util::FieldHash::Compat::Destroyer;
+
+    use Scalar::Util qw(weaken);
 
     sub new {
         my ( $class, $obj ) = @_;
@@ -206,14 +205,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
-Hash::Util::FieldHash::Compat::Heavy - Emulate Hash::Util::FieldHash using
-L<Tie::RefHash> etc.
+Hash::Util::FieldHash::Compat::Heavy - Emulate Hash::Util::FieldHash using Tie::RefHash etc
 
 =head1 VERSION
 
-version 0.05
+version 0.06
 
 =head1 SYNOPSIS
 
@@ -221,6 +221,17 @@ version 0.05
 
 =head1 DESCRIPTION
 
-See L<Hash::Util::FieldHash::Compat> for the documentation
+See L<Hash::Util::FieldHash::Compat> for the documentation.
+
+=head1 AUTHOR
+
+יובל קוג'מן (Yuval Kogman) <nothingmuch@woobling.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2008 by יובל קוג'מן (Yuval Kogman).
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut

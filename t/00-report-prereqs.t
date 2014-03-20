@@ -50,15 +50,14 @@ my $static_prereqs = do { my $x = {
                       },
        'develop' => {
                       'recommends' => {
-                                        'Dist::Zilla::PluginBundle::Author::ETHER' => '0.050'
+                                        'Dist::Zilla::PluginBundle::Author::ETHER' => '0.053'
                                       },
                       'requires' => {
-                                      'Dist::Zilla' => '5.013',
+                                      'Dist::Zilla' => '5.014',
                                       'Dist::Zilla::Plugin::ContributorsFromGit' => '0',
                                       'Dist::Zilla::Plugin::GitHub::Update' => '0',
                                       'Dist::Zilla::Plugin::GithubMeta' => '0',
                                       'Dist::Zilla::Plugin::Meta::Dynamic::Config' => '0',
-                                      'Dist::Zilla::Plugin::PodVersion' => '0',
                                       'Dist::Zilla::Plugin::Prereqs' => '0',
                                       'Dist::Zilla::PluginBundle::Author::ETHER' => '0',
                                       'File::Spec' => '0',

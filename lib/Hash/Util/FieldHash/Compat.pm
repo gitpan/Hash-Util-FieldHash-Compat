@@ -2,8 +2,9 @@ package Hash::Util::FieldHash::Compat;
 BEGIN {
   $Hash::Util::FieldHash::Compat::AUTHORITY = 'cpan:NUFFIN';
 }
-# git description: v0.04-7-g86e0ddf
-$Hash::Util::FieldHash::Compat::VERSION = '0.05';
+# git description: v0.05-6-g89d4ffe
+$Hash::Util::FieldHash::Compat::VERSION = '0.06';
+# ABSTRACT: Use Hash::Util::FieldHash or ties, depending on availability
 
 use strict;
 use warnings;
@@ -39,10 +40,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
-Hash::Util::FieldHash::Compat - Use L<Hash::Util::FieldHash> or ties, depending
-on availability.
+Hash::Util::FieldHash::Compat - Use Hash::Util::FieldHash or ties, depending on availability
+
+=head1 VERSION
+
+version 0.06
 
 =head1 SYNOPSIS
 
@@ -67,22 +73,15 @@ See L<Hash::Util::FieldHash> for all the details of the API.
 
 L<Hash::Util::FieldHash>, L<Tie::RefHash>, L<Tie::RefHash::Weak>.
 
-=head1 VERSION CONTROL
-
-=for stopwords Darcs
-
-This module is maintained using Darcs. You can get the latest version from
-L<http://nothingmuch.woobling.org/code>, and use C<darcs send> to commit
-changes.
-
 =head1 AUTHOR
 
-Yuval Kogman E<lt>nothingmuch@woobling.orgE<gt>
+יובל קוג'מן (Yuval Kogman) <nothingmuch@woobling.org>
 
-=head1 COPYRIGHT
+=head1 COPYRIGHT AND LICENSE
 
-    Copyright (c) 2008 Yuval Kogman. All rights reserved
-    This program is free software; you can redistribute
-    it and/or modify it under the same terms as Perl itself.
+This software is copyright (c) 2008 by יובל קוג'מן (Yuval Kogman).
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
