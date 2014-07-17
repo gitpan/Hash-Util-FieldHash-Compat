@@ -34,7 +34,10 @@ sub _merge_requires {
 }
 
 my %include = map {; $_ => 1 } qw(
-
+  Hash::Util::FieldHash
+  Tie::RefHash::Weak
+  Tie::RefHash
+  Scalar::Util
 );
 
 my %exclude = map {; $_ => 1 } qw(
@@ -50,33 +53,42 @@ my $static_prereqs = do { my $x = {
                       },
        'develop' => {
                       'recommends' => {
-                                        'Dist::Zilla::PluginBundle::Author::ETHER' => '0.053'
+                                        'Dist::Zilla::PluginBundle::Author::ETHER' => '0.065'
                                       },
                       'requires' => {
                                       'Devel::Hide' => '0',
-                                      'Dist::Zilla' => '5.014',
+                                      'Dist::Zilla' => '5',
                                       'Dist::Zilla::Plugin::ContributorsFromGit' => '0',
+                                      'Dist::Zilla::Plugin::DynamicPrereqs' => '0',
                                       'Dist::Zilla::Plugin::GitHub::Update' => '0',
                                       'Dist::Zilla::Plugin::GithubMeta' => '0',
-                                      'Dist::Zilla::Plugin::Meta::Dynamic::Config' => '0',
+                                      'Dist::Zilla::Plugin::MakeMaker' => '0',
+                                      'Dist::Zilla::Plugin::OnlyCorePrereqs' => '0',
                                       'Dist::Zilla::Plugin::Prereqs' => '0',
                                       'Dist::Zilla::PluginBundle::Author::ETHER' => '0',
                                       'File::Spec' => '0',
                                       'IO::Handle' => '0',
                                       'IPC::Open3' => '0',
+                                      'Pod::Weaver::Section::Contributors' => '0',
                                       'Test::CPAN::Changes' => '0.19',
                                       'Test::CPAN::Meta' => '0',
                                       'Test::Kwalitee' => '1.12',
                                       'Test::More' => '0.94',
                                       'Test::NoTabs' => '0',
                                       'Test::Pod' => '1.41',
+                                      'Test::Spelling' => '0.12',
                                       'Tie::RefHash' => '1.38',
                                       'Tie::RefHash::Weak' => '0.08'
                                     }
                     },
        'runtime' => {
                       'requires' => {
-                                      'perl' => '5.006'
+                                      'Exporter' => '0',
+                                      'constant' => '0',
+                                      'parent' => '0',
+                                      'perl' => '5.006',
+                                      'strict' => '0',
+                                      'warnings' => '0'
                                     }
                     },
        'test' => {
@@ -85,8 +97,11 @@ my $static_prereqs = do { my $x = {
                                      'CPAN::Meta::Requirements' => '2.120900'
                                    },
                    'requires' => {
+                                   'ExtUtils::MakeMaker' => '0',
+                                   'File::Spec::Functions' => '0',
+                                   'List::Util' => '0',
                                    'Test::More' => '0',
-                                   'Test::use::ok' => '0'
+                                   'version' => '0'
                                  }
                  }
      };

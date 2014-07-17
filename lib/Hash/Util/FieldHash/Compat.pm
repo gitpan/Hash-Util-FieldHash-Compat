@@ -2,9 +2,10 @@ package Hash::Util::FieldHash::Compat;
 BEGIN {
   $Hash::Util::FieldHash::Compat::AUTHORITY = 'cpan:NUFFIN';
 }
-# git description: v0.06-2-g17d9df6
-$Hash::Util::FieldHash::Compat::VERSION = '0.07';
+# git description: v0.07-10-g6248c0b
+$Hash::Util::FieldHash::Compat::VERSION = '0.08';
 # ABSTRACT: Use Hash::Util::FieldHash or ties, depending on availability
+# KEYWORDS: fields hashes fieldhash backwards compatibility backcompat tie
 
 use strict;
 use warnings;
@@ -48,7 +49,7 @@ Hash::Util::FieldHash::Compat - Use Hash::Util::FieldHash or ties, depending on 
 
 =head1 VERSION
 
-version 0.07
+version 0.08
 
 =head1 SYNOPSIS
 
@@ -83,5 +84,19 @@ This software is copyright (c) 2008 by יובל קוג'מן (Yuval Kogman).
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
+
+=head1 CONTRIBUTORS
+
+=over 4
+
+=item *
+
+Karen Etheridge <ether@cpan.org>
+
+=item *
+
+Yuval Kogman <nothingmuch@woobling.org>
+
+=back
 
 =cut

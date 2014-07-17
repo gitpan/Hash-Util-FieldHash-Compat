@@ -5,17 +5,15 @@ BEGIN {
   $Hash::Util::FieldHash::Compat::Heavy::AUTHORITY = 'cpan:NUFFIN';
 }
 # ABSTRACT: Emulate Hash::Util::FieldHash using Tie::RefHash etc
-$Hash::Util::FieldHash::Compat::Heavy::VERSION = '0.07';
+$Hash::Util::FieldHash::Compat::Heavy::VERSION = '0.08';
 package # hide from 'provides' scanner
     Hash::Util::FieldHash::Compat;
 
-use Tie::RefHash::Weak;
+use Tie::RefHash::Weak 0.08;
 
-use vars qw(@ISA %EXPORT_TAGS @EXPORT_OK);
+use parent 'Exporter';
 
-@ISA = qw(Exporter);
-
-%EXPORT_TAGS = (
+our %EXPORT_TAGS = (
     'all' => [ qw(
         fieldhash
         fieldhashes
@@ -27,7 +25,7 @@ use vars qw(@ISA %EXPORT_TAGS @EXPORT_OK);
     )],
 );
 
-@EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
+our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
 sub fieldhash (\%) {
     my $hash = shift;
@@ -80,8 +78,7 @@ sub register {
         Hash::Util::FieldHash::Compat::Tie::IdHash;
 
     use Tie::Hash ();
-    use vars qw(@ISA);
-    @ISA = qw(Tie::StdHash);
+    our @ISA = qw(Tie::StdHash);
 
     # this class always stringifies using id().
 
@@ -109,8 +106,7 @@ sub register {
     package # hide from PAUSE
         Hash::Util::FieldHash::Compat::Tie::FieldHash;
 
-    use vars qw(@ISA);
-    @ISA = qw(Tie::RefHash::Weak);
+    our @ISA = qw(Tie::RefHash::Weak);
 
     # this subclass retains weakrefs to the objects in the keys, but pretends
     # the keys are actually strings
@@ -211,7 +207,7 @@ Hash::Util::FieldHash::Compat::Heavy - Emulate Hash::Util::FieldHash using Tie::
 
 =head1 VERSION
 
-version 0.07
+version 0.08
 
 =head1 SYNOPSIS
 
